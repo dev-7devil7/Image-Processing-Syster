@@ -3,8 +3,8 @@ import pandas as pd
 import uuid
 from io import StringIO
 from sqlalchemy.orm import Session
-from image_processing_system.models import Product, SessionLocal
-from image_processing_system.utils import validate_csv, process_image, save_to_db
+from models import Product, SessionLocal
+from utils import validate_csv, process_image, save_to_db
 import subprocess
 import atexit
 import os
@@ -27,6 +27,11 @@ def get_db():
         yield db
     finally:
         db.close()
+
+# Root endpoint
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to the Image Processing System!"}
 
 @app.post("/upload/")
 async def upload_csv(file: UploadFile = File(...), background_tasks: BackgroundTasks = None):
