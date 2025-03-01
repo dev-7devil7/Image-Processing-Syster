@@ -3,7 +3,7 @@ from PIL import Image
 from io import BytesIO
 import os
 from sqlalchemy.orm import Session
-from image-processing-system.models import Product, SessionLocal
+from image_processing_system.models import Product, SessionLocal
 
 def validate_csv(df):
     # Check if required columns exist
