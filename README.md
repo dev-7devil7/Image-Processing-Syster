@@ -134,7 +134,7 @@ The system uses **background tasks** to process images asynchronously. Here’s 
 ## Setup Instructions
 
 1. **Clone the Repository**:
-   git clone https://github.com/your-username/image-processing-system.git
+   git clone https://github.com/dev-7devil7/Image-Processing-Syster.git
    cd image-processing-system
 
 2. **Set Up the Virtual Environment**:
