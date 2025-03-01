@@ -3,8 +3,8 @@ import pandas as pd
 import uuid
 from io import StringIO
 from sqlalchemy.orm import Session
-from models import Product, SessionLocal
-from utils import validate_csv, process_image, save_to_db
+from image-processing-system.models import Product, SessionLocal
+from image-processing-system.utils import validate_csv, process_image, save_to_db
 import subprocess
 import atexit
 import os
