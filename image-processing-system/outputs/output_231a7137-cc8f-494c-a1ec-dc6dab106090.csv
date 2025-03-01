@@ -1,0 +1,3 @@
+S. No.,Product Name,Input Image Urls,Output Image Urls
+SKU1,http://localhost:8001/cat.jpg,http://localhost:8001/lion.jpg,http://localhost:8001/processed/processed_lion.jpg
+SKU2,http://localhost:8001/fox.jpg,http://localhost:8001/tiger.jpg,http://localhost:8001/processed/processed_tiger.jpg
