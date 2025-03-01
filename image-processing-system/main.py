@@ -15,11 +15,11 @@ app = FastAPI()
 # Dictionary to store request statuses
 request_statuses = {}
 
-# Start the local image server
-server_process = subprocess.Popen(["python", "-m", "http.server", "8001", "--directory", "images"])
-
-# Ensure the server is stopped when the application exits
-atexit.register(server_process.terminate)
+# Start the local image server (only for local development)
+if os.getenv("ENV") != "production":
+    server_process = subprocess.Popen(["python", "-m", "http.server", "8001", "--directory", "images"])
+    # Ensure the server is stopped when the application exits
+    atexit.register(server_process.terminate)
 
 def get_db():
     db = SessionLocal()
@@ -94,7 +94,7 @@ async def process_images(df, request_id):
         request_statuses[request_id] = {"status": "Completed", "output_csv_path": output_csv_path}
         
         # Trigger the webhook
-        webhook_url = "http://example.com/webhook"  # Replace with your webhook URL
+        webhook_url = os.getenv("WEBHOOK_URL", "http://example.com/webhook")  # Use environment variable for webhook URL
         webhook_data = {
             "request_id": request_id,
             "status": "Completed",
